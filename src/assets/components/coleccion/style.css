@@ -1,0 +1,1045 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Cabinet+Grotesk:wght@700;800;900&display=swap');
+
+/* =========================================================
+   POKÉDEX PREMIUM — COLECCIÓN
+   NEGRO / ROJO / BLANCO / DORADO
+   ========================================================= */
+
+:root {
+  --pk-red: #ed1738;
+  --pk-red-light: #ff3855;
+  --pk-red-dark: #a90020;
+
+  --pk-black: #101116;
+  --pk-black-soft: #191b23;
+
+  --pk-white: #ffffff;
+  --pk-ivory: #fffdf8;
+  --pk-grey-bg: #f0f1f5;
+  --pk-grey: #e5e7ed;
+  --pk-grey-dark: #969baa;
+
+  --pk-gold: #d8ad48;
+  --pk-gold-light: #ffe6a0;
+  --pk-gold-dark: #926819;
+  --pk-gold-glow: rgba(230, 181, 65, 0.35);
+
+  --pk-transition: 250ms cubic-bezier(.2, .8, .2, 1);
+}
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  padding: 48px 24px;
+
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--pk-black);
+
+  background-color: #f0f1f5;
+  background-image:
+    radial-gradient(
+      ellipse at 0% 0%,
+      rgba(237, 23, 56, 0.09),
+      transparent 34%
+    ),
+    radial-gradient(
+      ellipse at 100% 100%,
+      rgba(216, 173, 72, 0.13),
+      transparent 32%
+    ),
+    linear-gradient(145deg, #ffffff 0%, #f0f1f5 100%);
+
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+::selection {
+  color: #ffffff;
+  background: var(--pk-red);
+}
+
+/* =========================================================
+   CONTENEDOR PRINCIPAL
+   ========================================================= */
+
+.coleccion {
+  position: relative;
+  isolation: isolate;
+
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 54px 48px 48px;
+
+  background: linear-gradient(
+    145deg,
+    #ffffff 0%,
+    #fffdf9 100%
+  );
+
+  border: 2px solid var(--pk-black);
+  border-radius: 28px;
+
+  box-shadow:
+    0 0 0 5px rgba(216, 173, 72, 0.16),
+    0 0 0 7px rgba(16, 17, 22, 0.92),
+    14px 18px 0 rgba(16, 17, 22, 0.95),
+    0 20px 60px rgba(16, 17, 22, 0.10);
+
+  overflow: hidden;
+}
+
+/* Franja superior roja, negra y dorada */
+
+.coleccion::before {
+  content: '';
+  position: absolute;
+  z-index: 2;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 8px;
+
+  background: linear-gradient(
+    90deg,
+    var(--pk-red-dark) 0%,
+    var(--pk-red) 25%,
+    var(--pk-black) 52%,
+    var(--pk-gold-dark) 76%,
+    var(--pk-gold-light) 88%,
+    var(--pk-gold) 100%
+  );
+}
+
+/* Textura decorativa */
+
+.coleccion::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+
+  top: 8px;
+  right: 0;
+
+  width: 210px;
+  height: 210px;
+
+  background: repeating-linear-gradient(
+    135deg,
+    transparent 0 12px,
+    rgba(216, 173, 72, 0.055) 12px 13px
+  );
+
+  mask-image: linear-gradient(225deg, black, transparent 80%);
+  pointer-events: none;
+}
+
+/* =========================================================
+   TÍTULO
+   ========================================================= */
+
+.coleccion-titulo {
+  position: relative;
+
+  margin-bottom: 16px;
+
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-size: clamp(2.7rem, 6vw, 5rem);
+  font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: -3px;
+  text-align: center;
+  text-transform: uppercase;
+
+  background: linear-gradient(
+    180deg,
+    #242630 0%,
+    #101116 58%,
+    #363844 100%
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Subrayado metálico */
+
+.coleccion-titulo::after {
+  content: '';
+  display: block;
+
+  width: 100px;
+  height: 5px;
+
+  margin: 20px auto 0;
+  border-radius: 10px;
+
+  background: linear-gradient(
+    90deg,
+    var(--pk-red),
+    var(--pk-gold-light),
+    var(--pk-gold-dark)
+  );
+
+  box-shadow: 0 3px 12px var(--pk-gold-glow);
+}
+
+/* =========================================================
+   CONTADOR
+   ========================================================= */
+
+.coleccion-contador {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  margin: 24px 0 32px;
+
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+  font-weight: 900;
+  color: var(--pk-red-dark);
+
+  font-variant-numeric: tabular-nums;
+}
+
+.coleccion-contador span {
+  color: #777c89;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* =========================================================
+   BOTÓN 4 NUEVOS
+   ========================================================= */
+
+.coleccion-boton {
+  position: relative;
+  isolation: isolate;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 62px;
+  max-width: 100%;
+  margin: 0 auto 56px;
+  padding: 18px 38px;
+
+  overflow: hidden;
+
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    #ff304f 0%,
+    var(--pk-red) 45%,
+    var(--pk-red-dark) 100%
+  );
+
+  border: 2px solid var(--pk-black);
+  border-radius: 14px;
+
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -4px 0 rgba(0, 0, 0, 0.14),
+    0 6px 0 var(--pk-black),
+    0 12px 28px rgba(237, 23, 56, 0.20);
+
+  transition:
+    transform var(--pk-transition),
+    box-shadow var(--pk-transition),
+    filter var(--pk-transition);
+}
+
+/* Reflejo animado */
+
+.coleccion-boton::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+
+  top: -50%;
+  left: -80%;
+
+  width: 45%;
+  height: 200%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+
+  transform: rotate(20deg);
+  transition: left 600ms ease;
+}
+
+.coleccion-boton:hover:not(:disabled)::before {
+  left: 140%;
+}
+
+.coleccion-boton:hover:not(:disabled) {
+  transform: translateY(-4px);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 9px 0 var(--pk-black),
+    0 18px 38px rgba(237, 23, 56, 0.30);
+
+  filter: saturate(1.12);
+}
+
+.coleccion-boton:active:not(:disabled) {
+  transform: translateY(4px);
+
+  box-shadow:
+    inset 0 2px 5px rgba(0, 0, 0, 0.15),
+    0 1px 0 var(--pk-black);
+}
+
+.coleccion-boton:focus-visible {
+  outline: 3px solid var(--pk-gold);
+  outline-offset: 5px;
+}
+
+.coleccion-boton:disabled {
+  color: #888d99;
+  background: #e7e8ed;
+
+  border-color: #c7cad2;
+  box-shadow: none;
+
+  cursor: not-allowed;
+  filter: grayscale(0.3);
+}
+
+/* =========================================================
+   SUBTÍTULO
+   ========================================================= */
+
+.coleccion-subtitulo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  margin-bottom: 26px;
+
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-size: clamp(1.25rem, 3vw, 1.8rem);
+  font-weight: 900;
+  letter-spacing: 1.2px;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--pk-black);
+}
+
+.coleccion-subtitulo::before,
+.coleccion-subtitulo::after {
+  content: '';
+
+  width: min(8vw, 70px);
+  height: 2px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--pk-gold)
+  );
+}
+
+.coleccion-subtitulo::after {
+  transform: rotate(180deg);
+}
+
+/* =========================================================
+   CONTENEDOR DE LOS CUATRO NUEVOS POKÉMON
+   ========================================================= */
+
+.coleccion-nuevos {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, 175px), 1fr)
+  );
+
+  gap: 22px;
+
+  margin-bottom: 64px;
+  padding: 30px;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(216, 173, 72, 0.11),
+      transparent 65%
+    ),
+    linear-gradient(145deg, #ffffff, #f6f6f9);
+
+  border: 1px solid var(--pk-gold);
+  border-radius: 22px;
+
+  box-shadow:
+    inset 0 0 0 4px #ffffff,
+    inset 0 0 0 5px rgba(216, 173, 72, 0.25),
+    0 8px 24px rgba(16, 17, 22, 0.04);
+}
+
+/* Etiqueta decorativa */
+
+.coleccion-nuevos::before {
+  content: 'RECENT ACQUISITIONS';
+
+  position: absolute;
+  top: -10px;
+  left: 50%;
+
+  padding: 4px 14px;
+  transform: translateX(-50%);
+
+  color: var(--pk-gold-dark);
+  background: var(--pk-white);
+
+  border: 1px solid var(--pk-gold);
+  border-radius: 30px;
+
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   TARJETAS DE LOS NUEVOS POKÉMON
+   ========================================================= */
+
+.coleccion-nuevo {
+  position: relative;
+  isolation: isolate;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  min-width: 0;
+  min-height: 220px;
+  padding: 22px 14px 18px;
+
+  overflow: hidden;
+  text-align: center;
+
+  background: linear-gradient(
+    155deg,
+    #ffffff 0%,
+    #fffdf8 75%,
+    #f9f2df 100%
+  );
+
+  border: 2px solid var(--pk-black);
+  border-radius: 17px;
+
+  box-shadow:
+    inset 0 0 0 3px rgba(216, 173, 72, 0.17),
+    4px 5px 0 var(--pk-black),
+    0 12px 24px rgba(16, 17, 22, 0.06);
+
+  cursor: pointer;
+
+  transition:
+    transform var(--pk-transition),
+    box-shadow var(--pk-transition),
+    border-color var(--pk-transition);
+
+  animation: pkCardReveal 450ms both;
+}
+
+/* Franja de la tarjeta */
+
+.coleccion-nuevo::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 5px;
+
+  background: linear-gradient(
+    90deg,
+    var(--pk-red),
+    var(--pk-gold-light),
+    var(--pk-gold-dark)
+  );
+}
+
+/* Luz detrás del Pokémon */
+
+.coleccion-nuevo::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+
+  top: 20%;
+  left: 50%;
+
+  width: 130px;
+  height: 130px;
+
+  transform: translateX(-50%);
+
+  background: radial-gradient(
+    circle,
+    rgba(216, 173, 72, 0.12),
+    transparent 70%
+  );
+
+  pointer-events: none;
+}
+
+.coleccion-nuevo:hover {
+  transform: translateY(-8px) scale(1.025);
+
+  border-color: var(--pk-red);
+
+  box-shadow:
+    inset 0 0 0 3px rgba(216, 173, 72, 0.30),
+    0 5px 0 var(--pk-black),
+    0 18px 35px rgba(16, 17, 22, 0.12),
+    0 0 22px rgba(216, 173, 72, 0.18);
+}
+
+.coleccion-nuevo:focus-visible {
+  outline: 3px solid var(--pk-red);
+  outline-offset: 4px;
+}
+
+/* Número */
+
+.coleccion-nuevo p:first-child {
+  align-self: center;
+
+  padding: 5px 11px;
+
+  color: #ffffff;
+  background: var(--pk-red);
+
+  border-radius: 5px;
+
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* Imagen */
+
+.coleccion-nuevo img {
+  display: block;
+
+  width: 100%;
+  max-width: 130px;
+  height: 115px;
+
+  margin: 12px 0;
+
+  object-fit: contain;
+
+  filter: drop-shadow(0 9px 8px rgba(16, 17, 22, 0.14));
+
+  transition:
+    transform 350ms cubic-bezier(.2, .8, .2, 1),
+    filter 350ms ease;
+}
+
+.coleccion-nuevo:hover img {
+  transform: translateY(-4px) scale(1.10) rotate(-3deg);
+
+  filter:
+    drop-shadow(0 12px 12px rgba(16, 17, 22, 0.18))
+    drop-shadow(0 0 8px rgba(216, 173, 72, 0.15));
+}
+
+/* Nombre */
+
+.coleccion-nuevo p:last-child {
+  color: var(--pk-black);
+
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 900;
+
+  text-transform: capitalize;
+  overflow-wrap: anywhere;
+}
+
+/* Pokémon repetido */
+
+.coleccion-nuevo.repetido {
+  background: linear-gradient(145deg, #f0f1f4, #e5e7ed);
+
+  border-color: #aeb2bd;
+
+  box-shadow:
+    inset 0 0 0 3px rgba(255, 255, 255, 0.65),
+    3px 4px 0 #aeb2bd;
+
+  opacity: 0.85;
+}
+
+.coleccion-nuevo.repetido p:first-child {
+  color: #555b69;
+  background: #d8dbe3;
+}
+
+/* =========================================================
+   ÁLBUM PRINCIPAL
+   ========================================================= */
+
+.coleccion-album {
+  display: grid;
+
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(105px, 1fr)
+  );
+
+  gap: 17px;
+
+  padding: 5px 3px 12px;
+}
+
+/* =========================================================
+   CASILLAS NO CAPTURADAS
+   ========================================================= */
+
+.coleccion-pokemon {
+  position: relative;
+  isolation: isolate;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  aspect-ratio: 1;
+  min-width: 0;
+  padding: 10px;
+
+  overflow: hidden;
+
+  background: linear-gradient(
+    145deg,
+    #ffffff 0%,
+    #f0f1f5 100%
+  );
+
+  border: 1px solid #d9dce5;
+  border-radius: 15px;
+
+  box-shadow:
+    inset 0 1px 0 #ffffff,
+    0 3px 8px rgba(16, 17, 22, 0.025);
+
+  user-select: none;
+
+  transition:
+    transform var(--pk-transition),
+    border-color var(--pk-transition),
+    background var(--pk-transition),
+    box-shadow var(--pk-transition);
+}
+
+/* Número de la Pokédex */
+
+.coleccion-pokemon p {
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 900;
+
+  color: #b8bdc9;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Textura de casillas vacías */
+
+.coleccion-pokemon:not(.capturado)::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+
+  background: repeating-linear-gradient(
+    135deg,
+    transparent 0 12px,
+    rgba(16, 17, 22, 0.025) 12px 13px
+  );
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   POKÉMON CAPTURADOS
+   ========================================================= */
+
+.coleccion-pokemon.capturado {
+  justify-content: space-between;
+
+  background: linear-gradient(
+    150deg,
+    #ffffff 0%,
+    #fffdf5 65%,
+    #f9edc9 100%
+  );
+
+  border: 1px solid var(--pk-gold);
+
+  box-shadow:
+    inset 0 0 0 2px rgba(255, 255, 255, 0.9),
+    inset 0 0 0 3px rgba(216, 173, 72, 0.20),
+    3px 4px 0 var(--pk-black),
+    0 7px 14px rgba(16, 17, 22, 0.04);
+
+  cursor: pointer;
+}
+
+/* Indicador dorado */
+
+.coleccion-pokemon.capturado::before {
+  content: '';
+  position: absolute;
+
+  top: 8px;
+  right: 8px;
+
+  width: 9px;
+  height: 9px;
+
+  background: radial-gradient(
+    circle at 35% 30%,
+    var(--pk-gold-light),
+    var(--pk-gold) 55%,
+    var(--pk-gold-dark)
+  );
+
+  border: 1px solid var(--pk-gold-dark);
+  border-radius: 50%;
+
+  box-shadow: 0 0 8px var(--pk-gold-glow);
+}
+
+/* Imagen capturada */
+
+.coleccion-pokemon.capturado img {
+  display: block;
+
+  max-width: 100%;
+  width: 100%;
+  height: 60px;
+
+  object-fit: contain;
+
+  filter: drop-shadow(0 5px 5px rgba(16, 17, 22, 0.12));
+
+  transition:
+    transform 280ms cubic-bezier(.2, .8, .2, 1),
+    filter 280ms ease;
+}
+
+/* Número de la casilla capturada */
+
+.coleccion-pokemon.capturado p {
+  position: static;
+
+  margin-top: 4px;
+
+  color: var(--pk-red-dark);
+
+  font-size: 0.76rem;
+  font-weight: 900;
+  text-align: center;
+  line-height: 1.2;
+
+  overflow-wrap: anywhere;
+}
+
+/* Hover de capturados */
+
+.coleccion-pokemon.capturado:hover {
+  z-index: 5;
+
+  transform: translateY(-5px) scale(1.045);
+
+  border-color: var(--pk-red);
+
+  box-shadow:
+    inset 0 0 0 2px #ffffff,
+    inset 0 0 0 3px rgba(216, 173, 72, 0.35),
+    0 4px 0 var(--pk-black),
+    0 14px 24px rgba(237, 23, 56, 0.13),
+    0 0 16px rgba(216, 173, 72, 0.14);
+}
+
+.coleccion-pokemon.capturado:hover img {
+  transform: scale(1.12) translateY(-2px);
+
+  filter: drop-shadow(0 8px 7px rgba(16, 17, 22, 0.15));
+}
+
+.coleccion-pokemon.capturado:focus-visible {
+  outline: 3px solid var(--pk-red);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   ANIMACIONES
+   ========================================================= */
+
+@keyframes pkCardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  body {
+    padding: 32px 18px;
+  }
+
+  .coleccion {
+    padding: 44px 28px 32px;
+  }
+
+  .coleccion-album {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(90px, 1fr)
+    );
+
+    gap: 13px;
+  }
+
+  .coleccion-nuevos {
+    gap: 16px;
+    padding: 24px 18px;
+  }
+}
+
+/* =========================================================
+   MÓVILES
+   ========================================================= */
+
+@media (max-width: 600px) {
+  body {
+    padding: 15px 10px;
+    background-attachment: scroll;
+  }
+
+  .coleccion {
+    padding: 38px 15px 22px;
+    border-radius: 19px;
+
+    box-shadow:
+      0 0 0 3px rgba(216, 173, 72, 0.18),
+      6px 8px 0 var(--pk-black),
+      0 12px 30px rgba(16, 17, 22, 0.08);
+  }
+
+  .coleccion::before {
+    height: 6px;
+  }
+
+  .coleccion-titulo {
+    font-size: clamp(2.3rem, 10vw, 3.3rem);
+    letter-spacing: -1.5px;
+  }
+
+  .coleccion-titulo::after {
+    width: 70px;
+    height: 4px;
+    margin-top: 15px;
+  }
+
+  .coleccion-contador {
+    gap: 7px;
+    margin: 20px 0 27px;
+    font-size: 1.8rem;
+  }
+
+  .coleccion-contador span {
+    font-size: 0.85rem;
+  }
+
+  .coleccion-boton {
+    width: 100%;
+    min-height: 56px;
+
+    margin-bottom: 43px;
+    padding: 15px 12px;
+
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    border-radius: 11px;
+  }
+
+  .coleccion-subtitulo {
+    gap: 9px;
+    margin-bottom: 21px;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+  }
+
+  .coleccion-subtitulo::before,
+  .coleccion-subtitulo::after {
+    width: 22px;
+  }
+
+  .coleccion-nuevos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 13px;
+
+    margin-bottom: 48px;
+    padding: 22px 12px 16px;
+
+    border-radius: 16px;
+  }
+
+  .coleccion-nuevo {
+    min-height: 190px;
+    padding: 17px 9px 13px;
+    border-radius: 13px;
+  }
+
+  .coleccion-nuevo img {
+    height: 95px;
+    margin: 9px 0;
+  }
+
+  .coleccion-nuevo p:last-child {
+    font-size: 0.95rem;
+  }
+
+  .coleccion-album {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(67px, 1fr)
+    );
+
+    gap: 9px;
+  }
+
+  .coleccion-pokemon {
+    padding: 6px;
+    border-radius: 11px;
+  }
+
+  .coleccion-pokemon.capturado img {
+    height: 43px;
+  }
+
+  .coleccion-pokemon.capturado p {
+    font-size: 0.66rem;
+  }
+
+  .coleccion-pokemon.capturado::before {
+    top: 5px;
+    right: 5px;
+
+    width: 7px;
+    height: 7px;
+  }
+}
+
+/* =========================================================
+   PANTALLAS MUY PEQUEÑAS
+   ========================================================= */
+
+@media (max-width: 360px) {
+  .coleccion {
+    padding-right: 11px;
+    padding-left: 11px;
+  }
+
+  .coleccion-album {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .coleccion-nuevos {
+    gap: 9px;
+    padding-right: 9px;
+    padding-left: 9px;
+  }
+
+  .coleccion-nuevo {
+    min-height: 165px;
+  }
+
+  .coleccion-nuevo img {
+    height: 80px;
+  }
+}
+
+/* =========================================================
+   ACCESIBILIDAD
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,13 +1,459 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Cabinet+Grotesk:wght@700;800;900&display=swap');
+
+/* ==========================================
+   POKÉDEX PREMIUM — SISTEMA VISUAL GLOBAL
+========================================== */
+
+:root {
+  --app-red: #ff1f3d;
+  --app-red-dark: #bd001e;
+  --app-red-light: #ff6478;
+
+  --app-gold: #e6bd58;
+  --app-gold-light: #ffe6a0;
+
+  --app-black: #393b41;
+  --app-panel: #14161d;
+  --app-panel-light: #20222b;
+
+  --app-white: #ffffff;
+  --app-grey: #a6a8b3;
+
+  --app-border: rgba(255, 255, 255, 0.09);
+  --app-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+/* ==========================================
+   REINICIO GENERAL
+========================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  color: var(--app-white);
+  font-family: 'Space Grotesk', sans-serif;
+
+  background:
+    radial-gradient(
+      ellipse at 50% -15%,
+      rgba(255, 31, 61, 0.18),
+      transparent 48%
+    ),
+    linear-gradient(
+      160deg,
+      #0b0c10 0%,
+      #171820 38%,
+      #282932 72%,
+      #41424b 100%
+    );
+
+  background-attachment: fixed;
+}
+
+#root {
+  min-height: 100vh;
+  isolation: isolate;
+}
+
+/* Luces ambientales del fondo */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 5% 40%,
+      rgba(255, 31, 61, 0.055),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 95% 70%,
+      rgba(230, 189, 88, 0.045),
+      transparent 25%
+    );
+}
+
+/* Selección de texto */
+
+::selection {
+  color: #ffffff;
+  background: var(--app-red);
+}
+
+/* ==========================================
+   MENÚ PRINCIPAL
+========================================== */
+
 .c-menu {
-    background-color: silver;
-    flex-wrap: wrap;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    width: 100%;
-    padding: 15px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 9px;
+
+  width: 100%;
+  min-height: 94px;
+  padding: 19px 28px;
+
+  background: linear-gradient(
+    115deg,
+    rgba(11, 12, 16, 0.97),
+    rgba(24, 25, 33, 0.97),
+    rgba(11, 12, 16, 0.97)
+  );
+
+  border-bottom: 1px solid rgba(255, 31, 61, 0.35);
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.35),
+    0 1px 0 rgba(255, 255, 255, 0.035) inset;
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* Línea luminosa superior */
+
+.c-menu::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 2px;
+
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--app-red-dark) 15%,
+    var(--app-red) 35%,
+    var(--app-gold) 50%,
+    var(--app-red) 65%,
+    var(--app-red-dark) 85%,
+    transparent 100%
+  );
+
+  opacity: 0.95;
+}
+
+/* Reflejo decorativo inferior */
+
+.c-menu::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+
+  width: min(70%, 700px);
+  height: 1px;
+
+  transform: translateX(-50%);
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 31, 61, 0.6),
+    rgba(230, 189, 88, 0.7),
+    transparent
+  );
+}
+
+/* ==========================================
+   ENLACES DEL MENÚ
+========================================== */
+
+.c-menu a {
+  position: relative;
+  z-index: 1;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 112px;
+  padding: 13px 21px;
+
+  overflow: hidden;
+
+  color: #d8d9e0;
+  text-decoration: none;
+
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.045),
+    rgba(255, 255, 255, 0.012)
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 11px;
+
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.12),
+    0 1px 0 rgba(255, 255, 255, 0.035) inset;
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Brillo que recorre cada enlace */
+
+.c-menu a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+
+  width: 70%;
+  height: 100%;
+
+  transform: skewX(-25deg);
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.12),
+    transparent
+  );
+
+  transition: left 0.5s ease;
+}
+
+/* Pequeño indicador inferior */
+
+.c-menu a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+
+  width: 0;
+  height: 2px;
+
+  transform: translateX(-50%);
+
+  background: linear-gradient(
+    90deg,
+    var(--app-red),
+    var(--app-gold)
+  );
+
+  border-radius: 5px;
+
+  transition: width 0.25s ease;
+}
+
+/* Hover */
+
+.c-menu a:hover {
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 31, 61, 0.19),
+    rgba(255, 31, 61, 0.055)
+  );
+
+  border-color: rgba(255, 31, 61, 0.55);
+
+  box-shadow:
+    0 8px 24px rgba(255, 31, 61, 0.12),
+    0 0 15px rgba(255, 31, 61, 0.055),
+    0 1px 0 rgba(255, 255, 255, 0.07) inset;
+
+  transform: translateY(-3px);
+}
+
+.c-menu a:hover::before {
+  left: 150%;
+}
+
+.c-menu a:hover::after {
+  width: 65%;
+}
+
+/* Enlace seleccionado según la ruta */
+
+.c-menu a[aria-current="page"] {
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    #e71937,
+    #a90020
+  );
+
+  border-color: rgba(255, 120, 139, 0.65);
+
+  box-shadow:
+    0 7px 22px rgba(237, 23, 56, 0.25),
+    0 1px 0 rgba(255, 255, 255, 0.18) inset;
+}
+
+.c-menu a[aria-current="page"]::after {
+  width: 55%;
+  background: var(--app-gold);
+}
+
+/* Pulsación */
+
+.c-menu a:active {
+  transform: translateY(0) scale(0.97);
+}
+
+/* ==========================================
+   CONTENIDO DE LAS PÁGINAS
+========================================== */
+
+#root > * {
+  min-width: 0;
+}
+
+/* Evita que imágenes o contenido desborden */
+
+img {
+  max-width: 100%;
+}
+
+/* Campos de texto generales */
+
+input,
+select,
+textarea {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Enfoque accesible para teclado */
+
+.c-menu a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--app-gold);
+  outline-offset: 4px;
+}
+
+/* ==========================================
+   ANIMACIÓN SUAVE AL CAMBIAR DE PÁGINA
+========================================== */
+
+@keyframes app-entrada {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================
+   TABLETAS
+========================================== */
+
+@media (max-width: 850px) {
+  .c-menu {
+    gap: 8px;
+    min-height: 82px;
+    padding: 16px 15px;
+  }
+
+  .c-menu a {
+    min-width: 100px;
+    padding: 12px 15px;
+
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+}
+
+/* ==========================================
+   MÓVILES
+========================================== */
+
+@media (max-width: 520px) {
+  .c-menu {
+    position: sticky;
+    top: 0;
+
+    gap: 7px;
+    padding: 13px 9px;
+
+    min-height: auto;
+  }
+
+  .c-menu a {
+    flex: 1 1 calc(33.333% - 7px);
+
+    min-width: 0;
+    padding: 11px 6px;
+
+    font-size: 10px;
+    letter-spacing: 0.3px;
+
+    border-radius: 9px;
+  }
+}
+
+/* ==========================================
+   PANTALLAS MUY PEQUEÑAS
+========================================== */
+
+@media (max-width: 350px) {
+  .c-menu {
+    gap: 5px;
+    padding: 10px 6px;
+  }
+
+  .c-menu a {
+    flex-basis: calc(50% - 5px);
+    padding: 10px 4px;
+    font-size: 10px;
+  }
+}
+
+/* ==========================================
+   REDUCIR ANIMACIONES SI SE SOLICITA
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

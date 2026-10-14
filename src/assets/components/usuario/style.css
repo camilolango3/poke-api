@@ -1,0 +1,308 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Cabinet+Grotesk:wght@700;800;900&display=swap');
+
+/* =========================
+   PÁGINA DE USUARIO
+========================= */
+
+.usuario-container {
+  min-height: 100vh;
+  width: 100%;
+  padding: 60px 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* =========================
+   TARJETA DE PERFIL
+========================= */
+
+.usuario-card {
+  position: relative;
+
+  width: 100%;
+  max-width: 600px;
+
+  padding: 45px 40px;
+
+  background: linear-gradient(
+    145deg,
+    #ffffff,
+    #f4f4f7,
+    #e9e9ef
+  );
+
+  border: 1px solid rgba(237, 23, 56, 0.25);
+  border-radius: 25px;
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.3),
+    0 5px 15px rgba(0, 0, 0, 0.1);
+
+  overflow: hidden;
+}
+
+/* FRANJA SUPERIOR */
+
+.usuario-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 7px;
+
+  background: linear-gradient(
+    90deg,
+    #a90020,
+    #ed1738,
+    #ff8a9a,
+    #d8ad48
+  );
+}
+
+/* =========================
+   ICONO DE USUARIO
+========================= */
+
+.usuario-icono {
+  width: 110px;
+  height: 110px;
+
+  margin: 0 auto 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    #ed1738,
+    #a90020
+  );
+
+  border: 5px solid #ffffff;
+
+  box-shadow:
+    0 0 0 2px #ed1738,
+    0 10px 25px rgba(237, 23, 56, 0.25);
+}
+
+.usuario-icono span {
+  font-size: 45px;
+}
+
+/* =========================
+   TÍTULO Y SUBTÍTULO
+========================= */
+
+.usuario-card h1 {
+  margin: 0;
+
+  color: #101116;
+
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-size: 34px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.usuario-subtitulo {
+  margin: 10px 0 28px;
+
+  color: #777781;
+  font-size: 15px;
+  text-align: center;
+}
+
+/* =========================
+   SEPARADOR
+========================= */
+
+.usuario-separador {
+  width: 85px;
+  height: 4px;
+
+  margin: 0 auto 30px;
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    90deg,
+    #ed1738,
+    #d8ad48
+  );
+}
+
+/* =========================
+   INFORMACIÓN DEL USUARIO
+========================= */
+
+.usuario-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.usuario-campo {
+  padding: 18px 20px;
+
+  background: #ffffff;
+
+  border: 1px solid #e1e1e7;
+  border-left: 5px solid #ed1738;
+  border-radius: 13px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.usuario-campo:hover {
+  transform: translateX(5px);
+
+  border-color: #ed1738;
+
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.usuario-campo label {
+  display: block;
+  margin-bottom: 7px;
+
+  color: #858590;
+
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.usuario-campo p {
+  margin: 0;
+
+  color: #22232a;
+
+  font-size: 16px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+/* =========================
+   BOTÓN EDITAR PERFIL
+========================= */
+
+.usuario-boton {
+  display: block;
+  width: 100%;
+
+  margin-top: 30px;
+  padding: 16px 20px;
+
+  border: none;
+  border-radius: 13px;
+
+  background: linear-gradient(
+    110deg,
+    #a90020,
+    #ed1738
+  );
+
+  color: #ffffff;
+
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow: 0 8px 18px rgba(237, 23, 56, 0.2);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.usuario-boton:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 12px 25px rgba(237, 23, 56, 0.3);
+}
+
+.usuario-boton:active {
+  transform: scale(0.98);
+}
+
+/* =========================
+   TABLETAS
+========================= */
+
+@media (max-width: 768px) {
+  .usuario-container {
+    padding: 40px 20px;
+  }
+
+  .usuario-card {
+    max-width: 540px;
+    padding: 40px 30px;
+  }
+
+  .usuario-card h1 {
+    font-size: 30px;
+  }
+}
+
+/* =========================
+   MÓVILES
+========================= */
+
+@media (max-width: 520px) {
+  .usuario-container {
+    padding: 25px 12px;
+  }
+
+  .usuario-card {
+    padding: 35px 20px;
+    border-radius: 20px;
+  }
+
+  .usuario-icono {
+    width: 90px;
+    height: 90px;
+  }
+
+  .usuario-icono span {
+    font-size: 36px;
+  }
+
+  .usuario-card h1 {
+    font-size: 27px;
+  }
+
+  .usuario-subtitulo {
+    font-size: 13px;
+  }
+
+  .usuario-campo {
+    padding: 15px;
+  }
+
+  .usuario-campo p {
+    font-size: 14px;
+  }
+
+  .usuario-boton {
+    padding: 14px;
+    font-size: 14px;
+  }
+}
