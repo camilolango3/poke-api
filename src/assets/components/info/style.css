@@ -1,91 +1,37 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Cabinet+Grotesk:wght@700;800;900&display=swap');
-
-.info {
+.pokedex-panel {
+  width: 95%;
+  max-width: 1500px;
+  min-height: 800px;
+  margin: 0 auto;
+  padding: 20px;
   box-sizing: border-box;
-  position: relative;
-  max-width: 1100px;
-  min-height: 420px;
-  margin: 40px auto;
-  padding: 70px 40px;
-  overflow: hidden;
 
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  gap: 20px;
+  align-items: flex-start;
 
-  font-family: 'Space Grotesk', sans-serif;
-  text-align: center;
-  color: #101116;
-
-  background: linear-gradient(145deg, #ffffff, #fff8e9);
-  border: 2px solid #d8ad48;
-  border-radius: 24px;
-  box-shadow: 0 20px 50px rgba(16, 17, 22, 0.12);
+  background: #fff;
+  border: 1px solid #e8c75a;
+  border-radius: 28px;
 }
 
-.info::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 9px;
-  background: linear-gradient(
-    90deg,
-    #a90020,
-    #ed1738,
-    #d8ad48,
-    #ffe6a0
-  );
-}
+.pokedex-panel > img.pokedex-imagen-grande,
+.pokedex-panel > img.pokedex-imagen-grande:hover {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
 
-.info::after {
-  content: "";
-  position: absolute;
-  width: 260px;
-  height: 260px;
-  right: -100px;
-  bottom: -120px;
-  border: 25px solid rgba(237, 23, 56, 0.06);
-  border-radius: 50%;
-  pointer-events: none;
-}
+  margin: 0 !important;
+  padding: 0 !important;
 
-.info-titulo {
-  margin: 0;
-  font-family: 'Cabinet Grotesk', sans-serif;
-  font-size: clamp(42px, 7vw, 76px);
-  font-weight: 900;
-  letter-spacing: 5px;
-  color: #ed1738;
-  text-transform: uppercase;
-  text-shadow: 3px 3px 0 rgba(216, 173, 72, 0.35);
-}
+  transform: none !important;
+  scale: 1 !important;
+  transition: none !important;
+  animation: none !important;
 
-.info-descripcion {
-  max-width: 600px;
-  margin: 0;
-  font-size: 18px;
-  line-height: 1.8;
-  color: #555660;
-}
-
-@media (max-width: 600px) {
-  .info {
-    min-height: 320px;
-    margin: 20px auto;
-    padding: 45px 20px;
-    border-radius: 16px;
-  }
-
-  .info-titulo {
-    letter-spacing: 3px;
-  }
-
-  .info-descripcion {
-    font-size: 16px;
-  }
+  flex: 0 1 100% !important;
+  object-fit: contain;
+  box-sizing: border-box;
 }
